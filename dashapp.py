@@ -10,7 +10,7 @@ from shapely.geometry import LineString, MultiLineString
 import numpy as np
 import plotly.express as px
 
-path = '/nfs/see-fs-02_users/earlacoa/Conibear_et-al_2020_ERL_dash-app/data/'
+path = '~/data/' # change this to the suitable path
 
 mapboxt = open(path + ".mapbox_token").read().rstrip()
 

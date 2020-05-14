@@ -1,6 +1,6 @@
-### Interactive plot
-Code for an interactive plot ([here](http://lukeconibear.pythonanywhere.com/)) visualising how a complete transition to clean household energy in India can save one-quarter of the healthy life lost to particulate matter pollution exposure in India.  
-For more information, see the paper [here](https://doi.org/10.1088/1748-9326/ab8e8a).  
+## Interactive plot
+See the interactive plot [here](http://lukeconibear.pythonanywhere.com/).  
+This visualises how a complete transition to clean household energy in India can save one-quarter of the healthy life lost to particulate matter pollution exposure in India. For more information, see the paper [here](https://doi.org/10.1088/1748-9326/ab8e8a).  
 
 ### Setup Python environment
 - Create a conda environment with the required libraries from the config file (.yml) in the repository:

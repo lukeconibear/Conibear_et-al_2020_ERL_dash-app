@@ -10,7 +10,7 @@ from shapely.geometry import LineString, MultiLineString
 import numpy as np
 import plotly.express as px
 
-path = '~/data/' # change this to the suitable path
+path = '~/static/' # change this to the suitable path
 
 mapboxt = open(path + ".mapbox_token").read().rstrip()
 
@@ -54,7 +54,7 @@ def shapefile_to_geojson(gdf, index_list, level=1, tolerance=0.025):
 
 # --- input data ---
 level = 1
-gdf = gpd.read_file(path + 'static/gadm36_IND_' + str(level) +'.shp', encoding='utf-8')
+gdf = gpd.read_file(path + 'gadm36_IND_' + str(level) +'.shp', encoding='utf-8')
 # remove superfluous states
 gdf.drop(5, inplace=True)
 gdf.drop(17, inplace=True)
@@ -67,7 +67,7 @@ appended_format_df = []
 scenarios = ['BASELINE', 'ALLLPG', 'URB15', 'EMIS50', 'STATE50']
 
 for scenario in scenarios:
-    df = pd.read_csv(path + 'static/Conibear_et_al_2020_supp-data_' + scenario + '.csv')[0:34]
+    df = pd.read_csv(path + 'Conibear_et_al_2020_supp-data_' + scenario + '.csv')[0:34]
     df.rename(columns={'Unnamed: 0':'geo-id'}, inplace=True)
     df['scenario'] = scenario
     appended_df.append(df)
@@ -101,10 +101,10 @@ min_values_abs = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 max_values_abs = [100, 300, 300, 300, 150000, 150000, 150000, 3500, 3500, 3500]
 min_values_diff = [-50, -300, -300, -300, -50000, -50000, -50000, -1500, -1500, -1500]
 max_values_diff = [50, 300, 300, 300, 50000, 50000, 50000, 1500, 1500, 1500]
-df_baseline = pd.read_csv(path + 'static/Conibear_et_al_2020_supp-data_BASELINE.csv')
+df_baseline = pd.read_csv(path + 'Conibear_et_al_2020_supp-data_BASELINE.csv')
 
 for scenario in scenarios:
-    df = pd.read_csv(path + 'static/Conibear_et_al_2020_supp-data_' + scenario + '.csv')
+    df = pd.read_csv(path + 'Conibear_et_al_2020_supp-data_' + scenario + '.csv')
     if scenario == 'BASELINE':
         plot_title = [
             'Ambient ' + u'PM\u2082.\u2085' + ' concentration (India = ' + str(df.apm25_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ")",

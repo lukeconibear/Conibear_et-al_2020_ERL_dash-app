@@ -270,7 +270,7 @@ def update_graph(scenario, variable):
         title=scenario + '<br>' \
               + format_df_merged.loc[(format_df_merged['scenario'] == scenario) & (format_df_merged['variable'] == variable)]['verbage'].values[0] + '<br>' \
               + format_df_merged.loc[(format_df_merged['scenario'] == scenario) & (format_df_merged['variable'] == variable)]['verbage_value'].values[0], 
-        mapbox=dict(center=dict(lat=22.5, lon=83.0), accesstoken=mapboxt, zoom=3.2), 
+        mapbox=dict(center=dict(lat=22.5, lon=83.0), accesstoken=mapboxt, zoom=3.1), 
         margin=dict(t=100, b=0, l=0, r=0), 
         height=500,
         font={'size': 11}

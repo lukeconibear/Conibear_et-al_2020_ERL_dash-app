@@ -107,29 +107,29 @@ for scenario in scenarios:
     df = pd.read_csv(path + 'Conibear_et_al_2020_supp-data_' + scenario + '.csv')
     if scenario == 'BASELINE':
         plot_title = [
-            'Ambient ' + u'PM\u2082.\u2085' + ' concentration (India = ' + str(df.apm25_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ")",
-            'Household ' + u'PM\u2082.\u2085' + ' concentration, females (India = ' + str(df.hpm25_female_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ')',
-            'Household ' + u'PM\u2082.\u2085' + ' concentration, males (India = ' + str(df.hpm25_male_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ')',
-            'Household ' + u'PM\u2082.\u2085' + ' concentration, children (India = ' + str(df.hpm25_child_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ')',
-            'MORT from total ' + u'PM\u2082.\u2085' + ' exposure (India = ' + '{:,}'.format(int(round(df.mort_tpm25_6cod_mean_total.values[-1], -3))) + ')',
-            'MORT from ambient ' + u'PM\u2082.\u2085' + ' exposure (India = ' + '{:,}'.format(int(round(df.mort_apm25_6cod_mean_total.values[-1], -3))) + ')',
-            'MORT from household ' + u'PM\u2082.\u2085' + ' exposure (India = ' + '{:,}'.format(int(round(df.mort_hpm25_6cod_mean_total.values[-1], -3))) + ')',
-            'DALYs rate from total ' + u'PM\u2082.\u2085' + ' exposure (India = ' + '{:,}'.format(int(round(df.dalys_tpm25_rate_6cod_mean_total.values[-1]))) + ')',
-            'DALYs rate from ambient ' + u'PM\u2082.\u2085' + ' exposure (India = ' + '{:,}'.format(int(round(df.dalys_apm25_rate_6cod_mean_total.values[-1]))) + ')',
-            'DALYs rate from household ' + u'PM\u2082.\u2085' + ' exposure (India = ' + '{:,}'.format(int(round(df.dalys_hpm25_rate_6cod_mean_total.values[-1]))) + ')'
+            ('Ambient ' + u'PM\u2082.\u2085' + ' concentration', '(India = ' + str(df.apm25_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ")"),
+            ('Household ' + u'PM\u2082.\u2085' + ' concentration, females', '(India = ' + str(df.hpm25_female_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ')'),
+            ('Household ' + u'PM\u2082.\u2085' + ' concentration, males', '(India = ' + str(df.hpm25_male_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ')'),
+            ('Household ' + u'PM\u2082.\u2085' + ' concentration, children', '(India = ' + str(df.hpm25_child_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ')'),
+            ('MORT from total ' + u'PM\u2082.\u2085' + ' exposure', '(India = ' + '{:,}'.format(int(round(df.mort_tpm25_6cod_mean_total.values[-1], -3))) + ')'),
+            ('MORT from ambient ' + u'PM\u2082.\u2085' + ' exposure', '(India = ' + '{:,}'.format(int(round(df.mort_apm25_6cod_mean_total.values[-1], -3))) + ')'),
+            ('MORT from household ' + u'PM\u2082.\u2085' + ' exposure', '(India = ' + '{:,}'.format(int(round(df.mort_hpm25_6cod_mean_total.values[-1], -3))) + ')'),
+            ('DALYs rate from total ' + u'PM\u2082.\u2085' + ' exposure', '(India = ' + '{:,}'.format(int(round(df.dalys_tpm25_rate_6cod_mean_total.values[-1]))) + ')'),
+            ('DALYs rate from ambient ' + u'PM\u2082.\u2085' + ' exposure', '(India = ' + '{:,}'.format(int(round(df.dalys_apm25_rate_6cod_mean_total.values[-1]))) + ')'),
+            ('DALYs rate from household ' + u'PM\u2082.\u2085' + ' exposure', '(India = ' + '{:,}'.format(int(round(df.dalys_hpm25_rate_6cod_mean_total.values[-1]))) + ')')
         ]
     else:
         plot_title = [
-            'Ambient ' + u'PM\u2082.\u2085' + ' concentration (India = ' + str(df.apm25_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ", " + str(int(100 * df.apm25_popweighted.values[-1] / df_baseline.apm25_popweighted.values[-1])) + "%)",
-            'Household ' + u'PM\u2082.\u2085' + ' concentration, females (India = ' + str(df.hpm25_female_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ", " + str(int(100 * df.hpm25_female_popweighted.values[-1] / df_baseline.hpm25_female_popweighted.values[-1])) + "%)",
-            'Household ' + u'PM\u2082.\u2085' + ' concentration, males (India = ' + str(df.hpm25_male_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ", " + str(int(100 * df.hpm25_male_popweighted.values[-1] / df_baseline.hpm25_male_popweighted.values[-1])) + "%)",
-            'Household ' + u'PM\u2082.\u2085' + ' concentration, children (India = ' + str(df.hpm25_child_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ", " + str(int(100 * df.hpm25_child_popweighted.values[-1] / df_baseline.hpm25_child_popweighted.values[-1])) + "%)",
-            'MORT from total ' + u'PM\u2082.\u2085' + ' exposure (India = ' + '{:,}'.format(int(round(df.mort_tpm25_6cod_mean_total.values[-1], -3))) + ", " + str(int(100 * df.mort_tpm25_6cod_mean_total.values[-1] / df_baseline.mort_tpm25_6cod_mean_total.values[-1])) + "%)",
-            'MORT from ambient ' + u'PM\u2082.\u2085' + ' exposure (India = ' + '{:,}'.format(int(round(df.mort_apm25_6cod_mean_total.values[-1], -3))) + ", " + str(int(100 * df.mort_apm25_6cod_mean_total.values[-1] / df_baseline.mort_apm25_6cod_mean_total.values[-1])) + "%)",
-            'MORT from household ' + u'PM\u2082.\u2085' + ' exposure (India = ' + '{:,}'.format(int(round(df.mort_hpm25_6cod_mean_total.values[-1], -3))) + ", " + str(int(100 * df.mort_hpm25_6cod_mean_total.values[-1] / df_baseline.mort_hpm25_6cod_mean_total.values[-1])) + "%)",
-            'DALYs rate from total ' + u'PM\u2082.\u2085' + ' exposure (India = ' + '{:,}'.format(int(round(df.dalys_tpm25_rate_6cod_mean_total.values[-1]))) + ", " + str(int(100 * df.dalys_tpm25_rate_6cod_mean_total.values[-1] / df_baseline.dalys_tpm25_rate_6cod_mean_total.values[-1])) + "%)",
-            'DALYs rate from ambient ' + u'PM\u2082.\u2085' + ' exposure (India = ' + '{:,}'.format(int(round(df.dalys_apm25_rate_6cod_mean_total.values[-1]))) + ", " + str(int(100 * df.dalys_apm25_rate_6cod_mean_total.values[-1] / df_baseline.dalys_apm25_rate_6cod_mean_total.values[-1])) + "%)",
-            'DALYs rate from household ' + u'PM\u2082.\u2085' + ' exposure (India = ' + '{:,}'.format(int(round(df.dalys_hpm25_rate_6cod_mean_total.values[-1]))) + ", " + str(int(100 * df.dalys_hpm25_rate_6cod_mean_total.values[-1] / df_baseline.dalys_hpm25_rate_6cod_mean_total.values[-1])) + "%)"
+            ('Ambient ' + u'PM\u2082.\u2085' + ' concentration', '(India = ' + str(df.apm25_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ", " + str(int(100 * df.apm25_popweighted.values[-1] / df_baseline.apm25_popweighted.values[-1])) + "%)"),
+            ('Household ' + u'PM\u2082.\u2085' + ' concentration, females', '(India = ' + str(df.hpm25_female_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ", " + str(int(100 * df.hpm25_female_popweighted.values[-1] / df_baseline.hpm25_female_popweighted.values[-1])) + "%)"),
+            ('Household ' + u'PM\u2082.\u2085' + ' concentration, males', '(India = ' + str(df.hpm25_male_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ", " + str(int(100 * df.hpm25_male_popweighted.values[-1] / df_baseline.hpm25_male_popweighted.values[-1])) + "%)"),
+            ('Household ' + u'PM\u2082.\u2085' + ' concentration, children', '(India = ' + str(df.hpm25_child_popweighted.values[-1]) + ' ' + u'\u03bcg' + '/' + u'm\u00b3' + ", " + str(int(100 * df.hpm25_child_popweighted.values[-1] / df_baseline.hpm25_child_popweighted.values[-1])) + "%)"),
+            ('MORT from total ' + u'PM\u2082.\u2085' + ' exposure', '(India = ' + '{:,}'.format(int(round(df.mort_tpm25_6cod_mean_total.values[-1], -3))) + ", " + str(int(100 * df.mort_tpm25_6cod_mean_total.values[-1] / df_baseline.mort_tpm25_6cod_mean_total.values[-1])) + "%)"),
+            ('MORT from ambient ' + u'PM\u2082.\u2085' + ' exposure', '(India = ' + '{:,}'.format(int(round(df.mort_apm25_6cod_mean_total.values[-1], -3))) + ", " + str(int(100 * df.mort_apm25_6cod_mean_total.values[-1] / df_baseline.mort_apm25_6cod_mean_total.values[-1])) + "%)"),
+            ('MORT from household ' + u'PM\u2082.\u2085' + ' exposure', '(India = ' + '{:,}'.format(int(round(df.mort_hpm25_6cod_mean_total.values[-1], -3))) + ", " + str(int(100 * df.mort_hpm25_6cod_mean_total.values[-1] / df_baseline.mort_hpm25_6cod_mean_total.values[-1])) + "%)"),
+            ('DALYs rate from total ' + u'PM\u2082.\u2085' + ' exposure', '(India = ' + '{:,}'.format(int(round(df.dalys_tpm25_rate_6cod_mean_total.values[-1]))) + ", " + str(int(100 * df.dalys_tpm25_rate_6cod_mean_total.values[-1] / df_baseline.dalys_tpm25_rate_6cod_mean_total.values[-1])) + "%)"),
+            ('DALYs rate from ambient ' + u'PM\u2082.\u2085' + ' exposure', '(India = ' + '{:,}'.format(int(round(df.dalys_apm25_rate_6cod_mean_total.values[-1]))) + ", " + str(int(100 * df.dalys_apm25_rate_6cod_mean_total.values[-1] / df_baseline.dalys_apm25_rate_6cod_mean_total.values[-1])) + "%)"),
+            ('DALYs rate from household ' + u'PM\u2082.\u2085' + ' exposure', '(India = ' + '{:,}'.format(int(round(df.dalys_hpm25_rate_6cod_mean_total.values[-1]))) + ", " + str(int(100 * df.dalys_hpm25_rate_6cod_mean_total.values[-1] / df_baseline.dalys_hpm25_rate_6cod_mean_total.values[-1])) + "%)")
         ]
         
     format_data_abs = []
@@ -142,7 +142,8 @@ for scenario in scenarios:
                 min_values_abs[plot_index],
                 max_values_abs[plot_index],
                 '0,0',
-                plot_title[plot_index]
+                plot_title[plot_index][0],
+                plot_title[plot_index][1]
             )
         )
         format_data_diff.append(
@@ -152,14 +153,15 @@ for scenario in scenarios:
                 min_values_diff[plot_index],
                 max_values_diff[plot_index],
                 '0,0',
-                plot_title[plot_index]
+                plot_title[plot_index][0],
+                plot_title[plot_index][1]
             )
         )
         
     if scenario == 'BASELINE':
-        format_df = pd.DataFrame(format_data_abs, columns=['variable_map', 'variable' , 'min_range', 'max_range' , 'format', 'verbage'])
+        format_df = pd.DataFrame(format_data_abs, columns=['variable_map', 'variable' , 'min_range', 'max_range' , 'format', 'verbage', 'verbage_value'])
     else:
-        format_df = pd.DataFrame(format_data_diff, columns=['variable_map', 'variable' , 'min_range', 'max_range' , 'format', 'verbage'])
+        format_df = pd.DataFrame(format_data_diff, columns=['variable_map', 'variable' , 'min_range', 'max_range' , 'format', 'verbage', 'verbage_value'])
         
         
     format_df['scenario'] = scenario
@@ -179,46 +181,46 @@ body = dbc.Container(
             [
                 dbc.Col(
                     [
-                        html.H4("Public health benefits of clean household energy in India"),
+                        html.H4("Public health benefits of clean household energy in India", style={'fontSize': 16}),
                         html.P(
                             """\
 An interactive plot visualising how a complete transition to
 clean household energy in India can save one-quarter of the
-healthy life lost to particulate matter pollution exposure in India."""
-                        ),
-                        html.A("For more information, see the paper here.", href='https://doi.org/10.1088/1748-9326/ab8e8a', target="_blank"),
-                        html.H5("Scenario"),
+healthy life lost to particulate matter pollution exposure in India.""",
+                        style={'fontSize': 12}),
+                        html.A("For more information, see the paper here.", href='https://doi.org/10.1088/1748-9326/ab8e8a', target="_blank", style={'fontSize': 12}),
+                        html.H5("Scenario", style={'fontSize': 14}),
                         html.Div(
                             [
                              dcc.Dropdown(
-                                 id='scenario-select', value='BASELINE', searchable=False, clearable=False,
+                                 id='scenario-select', value='BASELINE', searchable=False, clearable=False, style={'fontSize': 12},
                                  options=[{'label':scenario, 'value':scenario} for scenario in scenarios],
                                  )
                              ]
                         ),
                         html.Ul(
                             [
-                             html.Li('BASELINE = Present-day emissions.'),
-                             html.Li('ALLLPG = Complete household transition from solid fuels to LPG.'),
-                             html.Li('URB15 = Partial transition of ALLLPG within 15 km of urban areas.'),
-                             html.Li('STATE50 = Emission reduction of URB15 applied evenly across each state.'),
-                             html.Li('EMIS50 = Continued solid fuel use (stacking) at 50% after transitioning to LPG.')
+                             html.Li('BASELINE = Present-day emissions.', style={'fontSize': 12}),
+                             html.Li('ALLLPG = Complete household transition from solid fuels to LPG.', style={'fontSize': 12}),
+                             html.Li('URB15 = Partial transition of ALLLPG within 15 km of urban areas.', style={'fontSize': 12}),
+                             html.Li('STATE50 = Emission reduction of URB15 applied evenly across each state.', style={'fontSize': 12}),
+                             html.Li('EMIS50 = Continued solid fuel use (stacking) at 50% after transitioning to LPG.', style={'fontSize': 12})
                             ]
                         ),
-                        html.H5("Variable"),
+                        html.H5("Variable", style={'fontSize': 14}),
                         html.Div(
                             [
                              dcc.Dropdown(
-                                 id='variable-select', value='apm25_popweighted', searchable=False, clearable=False,
+                                 id='variable-select', value='apm25_popweighted', searchable=False, clearable=False, style={'fontSize': 12},
                                  options=[{'label':row['variable_map'], 'value':row['variable']} for index, row in format_df.iterrows()],
                                  )
                             ]
                         ),
                         html.Ul(
                             [
-                             html.Li('PM\u2082.\u2085 = Fine particulate matter.'),
-                             html.Li('MORT = Premature mortality, per year.'),
-                             html.Li('DALYs = Disability-adjusted life years, per year.')
+                             html.Li('PM\u2082.\u2085 = Fine particulate matter.', style={'fontSize': 12}),
+                             html.Li('MORT = Premature mortality, per year.', style={'fontSize': 12}),
+                             html.Li('DALYs = Disability-adjusted life years, per year.', style={'fontSize': 12})
                             ]
                         ),
                     ],
@@ -265,10 +267,13 @@ def update_graph(scenario, variable):
         hovertemplate='<b>State</b>: <b>%{text}</b>'+ '<br> <b>Value </b>: %{z}<br>'
     )
     layout = go.Layout(
-        title=scenario + '<br>' + format_df_merged.loc[(format_df_merged['scenario'] == scenario) & (format_df_merged['variable'] == variable)]['verbage'].values[0], 
-        mapbox=dict(center=dict(lat=22.5, lon=83.0), accesstoken=mapboxt, zoom=3.8), 
+        title=scenario + '<br>' \
+              + format_df_merged.loc[(format_df_merged['scenario'] == scenario) & (format_df_merged['variable'] == variable)]['verbage'].values[0] + '<br>' \
+              + format_df_merged.loc[(format_df_merged['scenario'] == scenario) & (format_df_merged['variable'] == variable)]['verbage_value'].values[0], 
+        mapbox=dict(center=dict(lat=22.5, lon=83.0), accesstoken=mapboxt, zoom=3.2), 
         margin=dict(t=100, b=0, l=0, r=0), 
-        height=700
+        height=500,
+        font={'size': 11}
     )
     return {'data':[trace], 'layout':layout}
 
